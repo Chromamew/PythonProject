@@ -1,3 +1,4 @@
+from random import seed
 from re import M
 import monster
 
@@ -7,3 +8,6 @@ goblin = monster.Monster(3, 1, "Goblin", 120, 120, 12, 10, [])
 worge = monster.Monster(4, 1, "Worge", 150, 150, 15, 12, [])
 snake = monster.Monster(5, 1, "Schlange", 100, 100, 10, 10, [])
 sheep = monster.Monster(6, 1, "Schaaf", 50, 50, 0, 10, [])
+
+
+level_1_monster = [wolf, pig, goblin, worge, snake, sheep]

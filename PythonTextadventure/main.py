@@ -1,5 +1,6 @@
 import allTheMonster
 import conversations
+import movement as m
 import player
 
 
@@ -12,12 +13,12 @@ while True:
     print(conversations.mainMenu)
     q = input(conversations.Q_mainMenu)
     if q == "1":
-        print("Du hast 1 eingegeben\n")
+        m.forward()
     elif q == "2":
-        print("Du hast 2 gedrückt\n")
+        m.right()
     elif q == "3":
-        print("Du hast 3 gedrückt\n")
+        m.backwards()
     elif q == "4":
-        print("Du hast 4 gedrückt\n")
+        m.left()
     else:
         print("Bitte eine richtige Eingabe machen")
