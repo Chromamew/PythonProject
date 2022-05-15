@@ -17,6 +17,8 @@ while go:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
 
+# ein kommentar für github
+
     screen.fill((25,25,25))
     #wo, farbe            posx,posy,breite,höhe
     (screen,(50,150,200),(0, screen_y-50, screen_x, 50))
