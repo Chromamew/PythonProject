@@ -16,11 +16,6 @@ go = True
 while go:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
-    if 
-
-
-
-
 
     screen.fill((25,25,25))
     #wo, farbe            posx,posy,breite,höhe
