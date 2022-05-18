@@ -6,25 +6,28 @@ pygame.init()
 clock = pygame.time.Clock()
 screen_x = 600
 screen_y = 600
+player_x = 100
+player_y = 440
 screen = pygame.display.set_mode([screen_x, screen_y])
 
 # boden 
-boden = pygame.Rect(0, screen_y - 50, screen_x, 50)
-player = pygame.Rect(30, screen_y-90, 20,20)
+boden = pygame.image.load("Pygame/src/gras_floor.png")
+background = pygame.image.load("Pygame/src/background.png")
+player = pygame.image.load("Pygame/src/horst.png")
+
 
 go = True
 while go:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
 
-# ein kommentar für github teil 2
-
     screen.fill((25,25,25))
     #wo, farbe            posx,posy,breite,höhe
     (screen,(50,150,200),(0, screen_y-50, screen_x, 50))
 
-    pygame.draw.rect(screen, (50,100,200), boden)
-    pygame.draw.rect(screen, (200, 0, 100), player)
+    screen.blit(background, (0,0))
+    screen.blit(boden, (0, 550))
+    screen.blit(player, (player_x, player_y))
     pygame.display.update()
 
 
