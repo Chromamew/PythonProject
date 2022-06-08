@@ -1,0 +1,9 @@
+{
+    "Billiger.de":{
+        "RTX 3060":"https://www.billiger.de/products/2953961849-asus-dual-geforce-rtx-3060-v2-oc-12-gb-gddr6-1837-mhz-90yv0gb2-m0na10",
+        "RTX 3050": "https://www.billiger.de/pricelist/3633968402-asus-phoenix-geforce-rtx-3050-8g-gaming-90yv0hh2-m0na00"},
+    "Amazon.de":{
+        "RTX 3060": "https://www.amazon.de/ASUS-Grafikkarte-DisplayPort-PH-RTX3060-12G-V2-90YV0GB4-M0NA10/dp/B0974XXKC1/ref=sr_1_1_sspa?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3PT465KR4OLOR&keywords=nvidia+3060&qid=1653592673&sprefix=nvidia+3060%2Caps%2C87&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExNldNVDk4QTdQQjc3JmVuY3J5cHRlZElkPUExMDIyMTc5M1Q4NkpCOE01WU9STCZlbmNyeXB0ZWRBZElkPUEwNjM2ODMyMUFTSTk0M1Y5SkZTRCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=",
+        "RTX 3050": "https://www.amazon.de/ASUS-Grafikkarte-Speicher-DIsplayPort-TUF-GTX1660TI-O6G-EVO-GAMING/dp/B09C8YJZH5/ref=sr_1_1_sspa?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=35F8GP7WL96UW&keywords=nvidia+3050&qid=1653592733&sprefix=nvidia+3050%2Caps%2C97&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyRVlOVlc0RVI5TENUJmVuY3J5cHRlZElkPUEwNzE3NzIwMkRaVkZCQ0ZPOVI4RSZlbmNyeXB0ZWRBZElkPUEwNzAyMzY0MUhRNDNKWFRSRDE2WCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
+    }
+}
