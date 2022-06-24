@@ -1,4 +1,4 @@
-class Monster():
+class Monster:
     def __init__(self, id, level, name, currentHp, maxHp, dmg, speed, attackList):
         self.id = id
         self.level = level
