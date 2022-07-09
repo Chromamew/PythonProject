@@ -1,5 +1,3 @@
-import time
-
 import player
 import allPokemon
 import random
@@ -32,14 +30,13 @@ def intro(me):
 
 
 def calcPokemonStats(randomokemon, level):
-    print(f"die stats des Pokemon {randomokemon.name} wurden auf das level {level} neu berechent")
     randomokemon.level = level
 
 def searchWildPokemon():
     randomPokemon = random.choice(allPokemon.allpokemon[random.choice(["WasserPokemon", "FeuerPokemon", "PflanzenPokemon", "NormalePokemon", "KäferPokemon"])])
     level = random.randint(1, 10)
     calcPokemonStats(randomPokemon, level)
-    if randomPokemon.level > 10:
+    if randomPokemon.level >= 10:
         print(f"Das Pokemon {randomPokemon.name} ist zu hohes level")
         return randomPokemon
     else:
