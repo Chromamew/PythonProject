@@ -1,17 +1,21 @@
+import time
+
 import player
 import allPokemon
+import random
 
 
 def intro(me):
     me.name = input("Btte gib Deinen Namen ein! ")
     print(f"Willkommen in der Welt von POKEMON {me.name}, schön das du bei uns bist!\nSicher weisst du Bescheid, "
-          f"dass du von mir, Dr:Acer, dein aller erstes POKEMON bekommst.\nDir stehen folgende POKEMON zur "
+          f"dass du von mir, Dr:Acor, dein aller erstes POKEMON bekommst.\nDir stehen folgende POKEMON zur "
           f"Auswahl:\n1: Bisasam\n2: Gluamanda\n3: Schiggy")
     while True:
-        userInput = input("Bitte wähle nach Bedacht.\n")
+        userInput = input("Bitte wähle mit Bedacht.\n")
         if userInput == "1" or userInput == "bisasam":
             me.pokemon.append(allPokemon.allpokemon["PflanzenPokemon"][0])
-            print(f"Sehr schön, Du hast dich für {me.pokemon[0].name} entscheiden. Ein hervorragendes Pflanzen POKEMON!")
+            print(
+                f"Sehr schön, Du hast dich für {me.pokemon[0].name} entscheiden. Ein hervorragendes Pflanzen POKEMON!")
             giveNameToPokemon(me)
             break
         elif userInput == "2" or userInput == "glumanda":
@@ -26,6 +30,26 @@ def intro(me):
             break
     return me
 
+
+def calcPokemonStats(randomokemon, level):
+    print(f"die stats des Pokemon {randomokemon.name} wurden auf das level {level} neu berechent")
+    randomokemon.level = level
+
+def searchWildPokemon():
+    randomPokemon = random.choice(allPokemon.allpokemon[random.choice(["WasserPokemon", "FeuerPokemon", "PflanzenPokemon", "NormalePokemon", "KäferPokemon"])])
+    level = random.randint(1, 10)
+    calcPokemonStats(randomPokemon, level)
+    if randomPokemon.level > 10:
+        print(f"Das Pokemon {randomPokemon.name} ist zu hohes level")
+        return randomPokemon
+    else:
+        return randomPokemon
+
+
+def changeRegion():
+    input("Leider noch nicht verfügbar\n...")
+
+
 def giveNameToPokemon(me):
     userInput = input("Möchtest du deinem POKEMON einen neuen Namen geben?\n")
     if userInput == "ja".lower():
@@ -34,8 +58,11 @@ def giveNameToPokemon(me):
         me.pokemon[0].name = userInput
         print(f"Sehr schön, dein POKEMON höer jetzt auf den Namen '{me.pokemon[0].name}'")
     else:
-        print(f"Gut... dann nicht hört es weiterhin auf den Namen '{me.pokemon[0].name}'")
+        print(f"Gut... dann nicht. Es hört weiterhin auf den Namen '{me.pokemon[0].name}'")
         return
+
+
+
 
 
 def mainMenu(me):
@@ -46,8 +73,25 @@ def mainMenu(me):
           "4: Wechsel Region\n")
     userInput = input("Was möchstest du machen?\n")
     if userInput == "1":
-        pass
-        searchWildPokemon()
+        foundPokemon = searchWildPokemon()
+        print(f"Du begegnest einem {foundPokemon.name} level {foundPokemon.level}")
+        print("Was möchtest du tun?")
+        while True:
+            userInput = input("****Kampfmenü****\n1: Kämpfen\n2: Pokemon Wechseln\n3: Items\n4: Fliehen\n")
+            if userInput == "1":
+                print("Kämpfen gewählt")
+                break
+            elif userInput == "2":
+                print("Pokemon Wechseln")
+                break
+            elif userInput == "3":
+                print("Items")
+                break
+            elif userInput == "4":
+                print("Du fliehst")
+                break
+            else:
+                print("Bitte passende Antwort geben")
     elif userInput == "2":
         for pokemon in me.pokemon:
             print(pokemon.name)
@@ -57,19 +101,11 @@ def mainMenu(me):
     elif userInput == "4":
         changeRegion()
 
-def searchWildPokemon():
-    print("Leider noc nicht verfügbar")
-
-def changeRegion():
-    print("Leider noc nicht verfügbar")
-
 
 gameloop = True
+me = player.Player([], [], [], "", 0, [])
+intro(me)
 while gameloop:
-    me = player.Player([], [], [], "", 0, [])
-    intro(me)
     mainMenu(me)
 
-
-    gameloop = False
-
+    # gameloop = False
