@@ -1,6 +1,9 @@
+import re
 import player
 import allPokemon
 import random
+gameloop = True
+me = player.Player([], [], [], [], "", 0, [])
 
 
 def intro(me):
@@ -33,7 +36,7 @@ def calcPokemonStats(randomokemon, level):
     randomokemon.level = level
 
 def searchWildPokemon():
-    randomPokemon = random.choice(allPokemon.allpokemon[random.choice(["WasserPokemon", "FeuerPokemon", "PflanzenPokemon", "NormalePokemon", "KäferPokemon"])])
+    randomPokemon = random.choice(allPokemon.allpokemon[random.choice(["WasserPokemon", "FeuerPokemon", "PflanzenPokemon", "NormalePokemon", "KäferPokemon", "ElektroPokemon"])])
     level = random.randint(1, 10)
     calcPokemonStats(randomPokemon, level)
     if randomPokemon.level >= 10:
@@ -41,6 +44,16 @@ def searchWildPokemon():
         return randomPokemon
     else:
         return randomPokemon
+
+def levelUp(pokemon):
+    pokemon.level += 1
+    return pokemon
+
+def kämpfen(Gegner, me):
+    print(f"Du schickst {me.pokemon[0].name} Level {me.pokemon[0].level} in den Kampf")
+    userInput = input("Wähle eine Atacke")
+    for attack in me.pokemon[0].attackList:
+        print(attack)
 
 
 def changeRegion():
@@ -58,7 +71,27 @@ def giveNameToPokemon(me):
         print(f"Gut... dann nicht. Es hört weiterhin auf den Namen '{me.pokemon[0].name}'")
         return
 
-
+def searchEncounter():
+    me.pokemonEncounter.append(searchWildPokemon())
+    #print(me.pokemonEncounter[0].name)
+    print(f"Du begegnest einem {me.pokemonEncounter[0].name} level {me.pokemonEncounter[0].level}")
+    while True:
+        userInput = input("****Kampfmenü****\n1: Kämpfen\n2: Pokemon Wechseln\n3: Items\n4: Fliehen\n")
+        if userInput == "1":
+            print("Kämpfen gewählt")
+            kämpfen(me.pokemonEncounter[0], me)
+            
+        elif userInput == "2":
+            print("Pokemon Wechseln")
+            
+        elif userInput == "3":
+            print("Items")
+            
+        elif userInput == "4":
+            print("Du fliehst")
+            break
+        else:
+            print("Bitte passende Antwort geben")
 
 
 
@@ -70,25 +103,7 @@ def mainMenu(me):
           "4: Wechsel Region\n")
     userInput = input("Was möchstest du machen?\n")
     if userInput == "1":
-        foundPokemon = searchWildPokemon()
-        print(f"Du begegnest einem {foundPokemon.name} level {foundPokemon.level}")
-        print("Was möchtest du tun?")
-        while True:
-            userInput = input("****Kampfmenü****\n1: Kämpfen\n2: Pokemon Wechseln\n3: Items\n4: Fliehen\n")
-            if userInput == "1":
-                print("Kämpfen gewählt")
-                break
-            elif userInput == "2":
-                print("Pokemon Wechseln")
-                break
-            elif userInput == "3":
-                print("Items")
-                break
-            elif userInput == "4":
-                print("Du fliehst")
-                break
-            else:
-                print("Bitte passende Antwort geben")
+        searchEncounter()
     elif userInput == "2":
         for pokemon in me.pokemon:
             print(pokemon.name)
@@ -99,8 +114,7 @@ def mainMenu(me):
         changeRegion()
 
 
-gameloop = True
-me = player.Player([], [], [], "", 0, [])
+
 intro(me)
 while gameloop:
     mainMenu(me)

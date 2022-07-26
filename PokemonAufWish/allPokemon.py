@@ -34,13 +34,13 @@ allpokemon = {
         pkm.Pokemon(21, "Habitak", 1, "Normal", 50, 50, 0, 100, [], []),
         pkm.Pokemon(22, "Ibitak", 1, "Normal", 1100, 1100, 0, 4200, [], []),
     ],
-    "Gift-Pokemon": [
+    "GiftPokemon": [
         pkm.Pokemon(23, "Rettern", 1, "Gift", 35, 35, 0, 100, [], []),
         pkm.Pokemon(24, "Arbok", 1, "Gift", 400, 400, 0, 4000, [], []),
         pkm.Pokemon
 
     ],
-    "Elektro-Pokemon": [
+    "ElektroPokemon": [
         pkm.Pokemon(25, "Pikatchu", 1, "Elektro", 40, 40, 0, 100, [], []),
         pkm.Pokemon(26, "Reichu", 1, "Elektro", 500, 500, 0, 5000, [], [])
     ]
