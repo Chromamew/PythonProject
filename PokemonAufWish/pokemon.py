@@ -15,12 +15,10 @@ class Pokemon:
 
 
 class PokemonAttacks:
-    def __init__(self, AttackId, name, typ, baseDmg, baseAccuracy):
+    def __init__(self, AttackId, name, typ, strength,  baseDmg, baseAccuracy):
         self.AttackId = AttackId
         self.name = name
         self.typ = typ
+        self.strength = strength
         self.baseDmg = baseDmg
         self.baseAccuracy = baseAccuracy
-
-    def weackness(self):
-        pass
