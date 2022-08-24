@@ -1,9 +1,10 @@
 import random
 import pokemon as pkm
+import allPokemonAttacks 
 
 allpokemon = {
     "WasserPokemon": [
-        pkm.Pokemon(7, "Shiggy", 1, "WASSER", 50, 50, 0, 100, [], []),
+        pkm.Pokemon(7, "Shiggy", 1, "WASSER", 50, 50, 0, 100, [ allPokemonAttacks.tacke,allPokemonAttacks.bite], []),
         pkm.Pokemon(8, "Shillock", 1, "WASSER", 500, 500, 0, 1600, [], []),
         pkm.Pokemon(9, "Turtok", 1, "WASSER", 1200, 1200, 0, 5000, [], []),
     ],

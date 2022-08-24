@@ -53,14 +53,20 @@ def sendPokemonToFight():
     print(f"Du schickst {me.pokemon[0].name} Level {me.pokemon[0].level} in den Kampf")
 
 def chooseAttack():
-    userInput = input("Wähle eine Atacke")
+    attackCounter = 1
+    print("Wähle eine Atacke\n")
     for attack in me.pokemon[0].attackList:
-        print(attack)
+        print(f"{attackCounter}:{attack.name}")
+        attackCounter += 1
+    userinput = input("Bitte Wählen\n")
+    selectPokemonAttack(userinput)
 
+def selectPokemonAttack(userinput):
+    
 
 def fight(enounterPokemon, me):
-    sendPokemonToFight()
     chooseAttack()
+
 
 def showItems():
     pass
@@ -84,18 +90,21 @@ def giveNameToPokemon(me):
         return
 
 def encounterMenue(enounterPokemon, me):
+    sendPokemonToFight()
     userinput = input("Was willst du machen?\n1: Kämpfen\n2: Pokemon wechseln\n3: Items\n4: fliehen\n")
+    
     while True:
         if userinput == "1":
             fight(enounterPokemon, me)
 
         elif userinput == "2":
             changeFrontPokemon()
-            break
+            
         elif userinput == "3":
             showItems()
-            break
+            
         elif userinput == "4":
+            print("Du bist entkommen")
             me.pokemonEncounter = []
             break
 
