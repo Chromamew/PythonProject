@@ -1,13 +1,13 @@
-import re
 import player
 import allPokemon
 import random
+
 gameloop = True
 me = player.Player([], [], [], [], "", 0, [])
 
 
 def intro(me):
-    me.name = input("Btte gib Deinen Namen ein! ")
+    me.name = input("Btte gib Deinen Namen ein!\n ")
     print(f"Willkommen in der Welt von POKEMON {me.name}, schön das du bei uns bist!\nSicher weisst du Bescheid, "
           f"dass du von mir, Dr:Acor, dein allererstes POKEMON bekommst.\nDir stehen folgende POKEMON zur "
           f"Auswahl:\n1: Bisasam\n2: Gluamanda\n3: Schiggy")
@@ -35,22 +35,28 @@ def intro(me):
 def calcPokemonStats(randomokemon, level):
     randomokemon.level = level
 
+
 def searchEncounterPokemon():
-    randomPokemon = random.choice(allPokemon.allpokemon[random.choice(["WasserPokemon", "FeuerPokemon", "PflanzenPokemon", "NormalePokemon", "KäferPokemon", "ElektroPokemon"])])
+    randomPokemon = random.choice(allPokemon.allpokemon[random.choice(
+        ["WasserPokemon", "FeuerPokemon", "PflanzenPokemon", "NormalePokemon", "KäferPokemon", "ElektroPokemon"])])
     level = random.randint(1, 10)
     calcPokemonStats(randomPokemon, level)
     if randomPokemon.level >= 10:
-        print(f"Das Pokemon {randomPokemon.name} ist zu hohes level")
+        print(f"Das Pokemon {randomPokemon.name} ({randomPokemon.level}) ist zu hohes level")
         return randomPokemon
     else:
-        print(f"Ein wildes {randomPokemon.name} Level:{randomPokemon.level} greift Dich an.")
+        print(f"Ein wildes {randomPokemon.name} Level {randomPokemon.level} greift Dich an.")
         return randomPokemon
+
 
 def levelUp(pokemon):
     pokemon.level += 1
     return pokemon
+
+
 def sendPokemonToFight():
     print(f"Du schickst {me.pokemon[0].name} Level {me.pokemon[0].level} in den Kampf")
+
 
 def chooseAttack():
     attackCounter = 1
@@ -61,21 +67,29 @@ def chooseAttack():
     userinput = input("Bitte Wählen\n")
     selectPokemonAttack(userinput)
 
+
 def selectPokemonAttack(userinput):
-    
+    pass
+
 
 def fight(enounterPokemon, me):
     chooseAttack()
 
 
+def notAvailable():
+    print("Leider noch nciht verfügbar\n...")
+
+
 def showItems():
-    pass
+    notAvailable()
+
 
 def changeFrontPokemon():
-    pass
+    notAvailable()
+
 
 def changeRegion():
-    input("Leider noch nicht verfügbar\n...")
+    notAvailable()
 
 
 def giveNameToPokemon(me):
@@ -83,33 +97,35 @@ def giveNameToPokemon(me):
     if userInput == "ja".lower():
         current_name = me.pokemon[0].name
         userInput = input("Wie soll der neue Name lauten?\n")
-        me.pokemon[0].name = userInput
-        print(f"Sehr schön, dein POKEMON höer jetzt auf den Namen '{me.pokemon[0].name}'")
+        me.pokemon[0].alias = userInput
+        print(f"Sehr schön, dein POKEMON höer jetzt auf den Namen '{me.pokemon[0].alias}'")
     else:
-        print(f"Gut... dann nicht. Es hört weiterhin auf den Namen '{me.pokemon[0].name}'")
+        me.pokemon[0].alias = me.pokemon[0].name
+        print(f"Gut... dann nicht. Es hört weiterhin auf den Namen '{me.pokemon[0].alias}'")
         return
+
 
 def encounterMenue(enounterPokemon, me):
     sendPokemonToFight()
     userinput = input("Was willst du machen?\n1: Kämpfen\n2: Pokemon wechseln\n3: Items\n4: fliehen\n")
-    
+
     while True:
         if userinput == "1":
             fight(enounterPokemon, me)
 
         elif userinput == "2":
             changeFrontPokemon()
-            
+
         elif userinput == "3":
             showItems()
-            
+
         elif userinput == "4":
             print("Du bist entkommen")
             me.pokemonEncounter = []
             break
 
 
-
+# Hauptmenü zum Navigieren
 def mainMenu(me):
     print("\n*****Hauptmenü*****\n\n"
           "1: Suche nach Wilden Pokemon\n"
@@ -117,19 +133,24 @@ def mainMenu(me):
           "3: Items\n"
           "4: Wechsel Region\n")
     userInput = input("Was möchstest du machen?\n")
+
     if userInput == "1":
         enounterPokemon = searchEncounterPokemon()
-        encounterMenue(enounterPokemon, me) #1 kämpfen, 2 pokemon Wechseln, 3 Items nutzen, 4 Fliehen
-
+        encounterMenue(enounterPokemon, me)
     elif userInput == "2":
+        tempNum = 1
+        print("Derzeit führst du folgene POKEMON mit dir: ")
         for pokemon in me.pokemon:
-            print(pokemon.name)
+            if(pokemon.alias == pokemon.name):
+                print(f"{tempNum} {pokemon.alias}")
+            else:
+                print(f"{tempNum} {pokemon.alias} ({pokemon.name})")
+            tempNum += 1
     elif userInput == "3":
         for item in me.items:
             print(item)
     elif userInput == "4":
         changeRegion()
-
 
 
 intro(me)

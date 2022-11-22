@@ -1,7 +1,8 @@
 class Pokemon:
-    def __init__(self, PokemonId, name, level, typ, currentHp, maxHp, currentXp, needXpForLevelUp, attackList, stats):
+    def __init__(self, PokemonId, name, alias, level, typ, currentHp, maxHp, currentXp, needXpForLevelUp, attackList, stats):
         self.PokemonId = PokemonId
         self.name = name
+        self.alias = alias
         self.typ = typ
         self.level = level
         self.currentHp = currentHp
