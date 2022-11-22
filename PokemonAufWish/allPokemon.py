@@ -4,19 +4,19 @@ import allPokemonAttacks
 
 allpokemon = {
     "WasserPokemon": [
-        pkm.Pokemon(7, "Shiggy", "", 1, "WASSER", 50, 50, 0, 100, [ allPokemonAttacks.tacke,allPokemonAttacks.bite], []),
-        pkm.Pokemon(8, "Shillock", "", 1, "WASSER", 500, 500, 0, 1600, [], []),
-        pkm.Pokemon(9, "Turtok", "", 1, "WASSER", 1200, 1200, 0, 5000, [], []),
+        pkm.Pokemon(7, "Shiggy", "", 1, "WASSER", 50, 50, 0, 100, [ allPokemonAttacks.tacke,allPokemonAttacks.waterGun], []),
+        pkm.Pokemon(8, "Shillock", "", 1, "WASSER", 500, 500, 0, 1600, [ allPokemonAttacks.tacke,allPokemonAttacks.waterGun], []),
+        pkm.Pokemon(9, "Turtok", "", 1, "WASSER", 1200, 1200, 0, 5000, [ allPokemonAttacks.tacke,allPokemonAttacks.waterGun], []),
     ],
     "FeuerPokemon": [
-        pkm.Pokemon(4, "Glumanda", "", 1, "FEUER", 50, 50, 0, 100, [], []),
-        pkm.Pokemon(5, "Glutexo", "", 1, "FEUER", 500, 500, 0, 1600, [], []),
-        pkm.Pokemon(6, "Glurak", "", 1, "FEUER", 1200, 1200, 0, 5000, [], [])
+        pkm.Pokemon(4, "Glumanda", "", 1, "FEUER", 50, 50, 0, 100, [allPokemonAttacks.tacke, allPokemonAttacks.amber], []),
+        pkm.Pokemon(5, "Glutexo", "", 1, "FEUER", 500, 500, 0, 1600, [allPokemonAttacks.tacke, allPokemonAttacks.amber], []),
+        pkm.Pokemon(6, "Glurak", "", 1, "FEUER", 1200, 1200, 0, 5000, [allPokemonAttacks.tacke, allPokemonAttacks.amber], [])
     ],
     "PflanzenPokemon": [
-        pkm.Pokemon(1, "Bisasam", "", 1, "PFLANZE", 50, 50, 0, 100, [], []),
-        pkm.Pokemon(2, "Bisaknosp", "", 1, "PFLANZE", 500, 500, 0, 1600, [], []),
-        pkm.Pokemon(3, "Bisalor", "", 1, "PFLANZE", 1200, 1200, 0, 5000, [], [])
+        pkm.Pokemon(1, "Bisasam", "", 1, "PFLANZE", 50, 50, 0, 100, [allPokemonAttacks.tacke, allPokemonAttacks.vineWhip], []),
+        pkm.Pokemon(2, "Bisaknosp", "", 1, "PFLANZE", 500, 500, 0, 1600, [allPokemonAttacks.tacke, allPokemonAttacks.vineWhip], []),
+        pkm.Pokemon(3, "Bisalor", "", 1, "PFLANZE", 1200, 1200, 0, 5000, [allPokemonAttacks.tacke, allPokemonAttacks.vineWhip], [])
     ],
     "KäferPokemon": [
         pkm.Pokemon(10, "Raupi", "", 1, "Käfer", 35, 35, 0, 80, [], []),
@@ -47,8 +47,7 @@ allpokemon = {
 }
 
 
-def getAStarterPokemon():
-    return allpokemon[random.choice(["WasserPokemon", "FeuerPokemon", "PflanzenPokemon"])]
+
 
 
 

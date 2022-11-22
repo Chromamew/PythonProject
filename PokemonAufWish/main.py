@@ -59,13 +59,17 @@ def sendPokemonToFight():
 
 
 def chooseAttack():
-    attackCounter = 1
+    tempNum = 1
     print("Wähle eine Atacke\n")
     for attack in me.pokemon[0].attackList:
-        print(f"{attackCounter}:{attack.name}")
-        attackCounter += 1
+        print(f"{tempNum}:{attack.name}")
+        tempNum += 1
     userinput = input("Bitte Wählen\n")
-    selectPokemonAttack(userinput)
+    if userinput == "1":
+        return me.pokemon[0].attackList[0]
+    elif userinput == "2":
+        return me.pokemon[0].attackList[1]
+
 
 
 def selectPokemonAttack(userinput):
@@ -73,7 +77,8 @@ def selectPokemonAttack(userinput):
 
 
 def fight(enounterPokemon, me):
-    chooseAttack()
+    yourAttack = chooseAttack()
+
 
 
 def notAvailable():
