@@ -58,17 +58,24 @@ def sendPokemonToFight():
     print(f"Du schickst {me.pokemon[0].name} Level {me.pokemon[0].level} in den Kampf")
 
 
-def chooseAttack():
+def chooseYourAttack(pokemon):
     tempNum = 1
     print("Wähle eine Atacke\n")
-    for attack in me.pokemon[0].attackList:
+    for attack in pokemon.attackList:
         print(f"{tempNum}:{attack.name}")
         tempNum += 1
     userinput = input("Bitte Wählen\n")
     if userinput == "1":
-        return me.pokemon[0].attackList[0]
+        return pokemon.attackList[0]
     elif userinput == "2":
-        return me.pokemon[0].attackList[1]
+        return pokemon.attackList[1]
+
+def chooseEncounterAttack(encounterPokemon):
+   return random.choice(encounterPokemon.attackList)
+
+def calcDmg():
+    pass
+
 
 
 
@@ -76,9 +83,11 @@ def selectPokemonAttack(userinput):
     pass
 
 
-def fight(enounterPokemon, me):
-    yourAttack = chooseAttack()
+def fight(encounterPokemon, me):
+    yourAttack = chooseYourAttack(me.pokemon[0])
+    encounterAttack = chooseEncounterAttack(encounterPokemon)
 
+    calcDmg(me, encounterPokemon)
 
 
 def notAvailable():
