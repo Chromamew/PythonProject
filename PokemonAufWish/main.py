@@ -58,6 +58,7 @@ def sendPokemonToFight():
     print(f"Du schickst {me.pokemon[0].name} Level {me.pokemon[0].level} in den Kampf")
 
 
+# ein komentr der den ich erstelle what ever
 def chooseYourAttack(pokemon):
     tempNum = 1
     print("Wähle eine Atacke\n")
