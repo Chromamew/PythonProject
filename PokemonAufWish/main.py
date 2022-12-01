@@ -58,28 +58,51 @@ def sendPokemonToFight():
     print(f"Du schickst {me.pokemon[0].name} Level {me.pokemon[0].level} in den Kampf")
 
 
-def chooseAttack():
+# ein komentr der den ich erstelle what ever
+def chooseYourAttack(pokemon):
     tempNum = 1
     print("Wähle eine Atacke\n")
-    for attack in me.pokemon[0].attackList:
+    for attack in pokemon.attackList:
         print(f"{tempNum}:{attack.name}")
         tempNum += 1
     userinput = input("Bitte Wählen\n")
     if userinput == "1":
-        return me.pokemon[0].attackList[0]
+        return pokemon.attackList[0]
     elif userinput == "2":
-        return me.pokemon[0].attackList[1]
+        return pokemon.attackList[1]
+
+def chooseEncounterAttack(encounterPokemon):
+   return random.choice(encounterPokemon.attackList)
+
+def calcDmg(myPokemon, encounterEnemy, yourAttack, encounterAttack):
+    encounterEnemy.currentHp -= yourAttack.baseDmg
+    print(f"{myPokemon.name} hat {encounterEnemy.name} mit {yourAttack.name} {yourAttack.baseDmg} Schaden zugefügt")
+
+    myPokemon.currentHp -= encounterAttack.baseDmg
+    print(f"{encounterEnemy.name} hat deinem {myPokemon.name} mit {encounterAttack.name} {encounterAttack.baseDmg} Schaden zugefügt\n")
+
 
 
 
 def selectPokemonAttack(userinput):
     pass
 
+# a beide suchen sich ihre attacken  FERTIG
+# # bdann wird geschaut wer zuerst angreift(erstmal übersprungen)
+# c dann wird der schaden berechent.
+# d fertig
+def fight(encounterPokemon, me):
+    yourAttack = chooseYourAttack(me.pokemon[0])
+    encounterAttack = chooseEncounterAttack(encounterPokemon)
+    calcDmg(me.pokemon[0], encounterPokemon, yourAttack, encounterAttack)
 
-def fight(enounterPokemon, me):
-    yourAttack = chooseAttack()
-
-
+    if me.pokemon[0].currentHp <= 0:
+        print("Dein pokemon ist besiegt")
+        return False
+    elif encounterPokemon.currentHp <= 0:
+        print(f"{encounterPokemon.name} wurde besiegt")
+        return False
+    return True
 
 def notAvailable():
     print("Leider noch nciht verfügbar\n...")
@@ -112,11 +135,12 @@ def giveNameToPokemon(me):
 
 def encounterMenue(enounterPokemon, me):
     sendPokemonToFight()
-    userinput = input("Was willst du machen?\n1: Kämpfen\n2: Pokemon wechseln\n3: Items\n4: fliehen\n")
-
-    while True:
+    #userinput = input("Was willst du machen?\n1: Kämpfen\n2: Pokemon wechseln\n3: Items\n4: fliehen\n")
+    infight = True
+    while infight:
+        userinput = input("Was willst du machen?\n1: Kämpfen\n2: Pokemon wechseln\n3: Items\n4: fliehen\n")
         if userinput == "1":
-            fight(enounterPokemon, me)
+            infight = fight(enounterPokemon, me)
 
         elif userinput == "2":
             changeFrontPokemon()
