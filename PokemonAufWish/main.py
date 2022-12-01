@@ -88,7 +88,7 @@ def selectPokemonAttack(userinput):
     pass
 
 # a beide suchen sich ihre attacken  FERTIG
-# # bdann wird geschaut wer zuerst angreift(erstmal übersprungen)
+# b dann wird geschaut wer zuerst angreift(erstmal übersprungen)
 # c dann wird der schaden berechent.
 # d fertig
 def fight(encounterPokemon, me):
